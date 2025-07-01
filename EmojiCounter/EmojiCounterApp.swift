@@ -11,7 +11,8 @@ import SwiftUI
 struct EmojiCounterApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Home()
+                .preferredColorScheme(.dark)
         }
     }
 }
