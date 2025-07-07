@@ -9,7 +9,7 @@ import Observation
 
 @Observable
 class Emojis {
-    var myEmojis: [Character]
+    var myEmojis: [Character: Int]
     var emojiST: Set<Character>
     var ranges: Set<ClosedRange<Int>> {
         didSet {
@@ -19,7 +19,7 @@ class Emojis {
         }
     }
     
-    init(currentEmojis: [Character] = [], emojiST: Set<Character> = [], ranges: Set<ClosedRange<Int>> = []) {
+    init(currentEmojis: [Character: Int] = [:], emojiST: Set<Character> = [], ranges: Set<ClosedRange<Int>> = []) {
         self.myEmojis = currentEmojis
         self.emojiST = emojiST
         self.ranges = [0x1F601...0x1F64F, 0x2702...0x27B0, 0x1F680...0x1F6C0, 0x1F170...0x1F251]
@@ -27,14 +27,32 @@ class Emojis {
     
     func incrementEmojis() {
         let emoji = randomEmoji()
-        myEmojis.append(emoji)
+        if let myCount = myEmojis[emoji] {
+            myEmojis[emoji] = myCount + 1
+        } else {
+            myEmojis[emoji] = 1
+        }
         emojiST.insert(emoji)
     }
     
     func decrementEmoji() {
-        if let emoji = myEmojis.popLast() {
-            emojiST.remove(emoji)
+        guard !myEmojis.isEmpty else { return }
+        let randomKey = myEmojis.keys.randomElement()!
+        myEmojis.removeValue(forKey: randomKey)
+    }
+    
+    func decrementCount(_ key: Character) {
+        guard let count = myEmojis[key] else { return }
+        if count == 1 {
+            myEmojis.removeValue(forKey: key)
+            emojiST.remove(key)
+        } else {
+            myEmojis[key]! -= 1
         }
+    }
+    
+    func incrementCount(_ key: Character) {
+        myEmojis[key]! += 1
     }
     
     func randomEmoji() -> Character {

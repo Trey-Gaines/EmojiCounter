@@ -9,18 +9,47 @@ import SwiftUI
 
 struct Home: View {
     @State var myEmojis = Emojis()
+    var emojis: [Character] {
+        Array(myEmojis.myEmojis.keys)
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 List {
-                    ForEach($myEmojis.myEmojis, id: \.self, editActions: .delete) { emoji in
-                        Text("\(emoji.wrappedValue)")
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .font(.largeTitle)
-                        
+                    ForEach(emojis, id: \.self) { emoji in
+                        HStack {
+                            Text("\(emoji)")
+                            Text("Count: \(myEmojis.myEmojis[emoji] ?? 0)")
+                                .padding(.leading, 8)
+
+                            Spacer()
+                            HStack(spacing: 8) {
+                                Button {
+                                    myEmojis.incrementCount(emoji)
+                                } label: {
+                                    Text("+")
+                                        .foregroundStyle(.white)
+                                        .frame(width: 30, height: 30)
+                                        .background(RoundedRectangle(cornerRadius: 6).fill(Color.blue))
+                                }
+
+                                Button {
+                                    myEmojis.decrementCount(emoji)
+                                } label: {
+                                    Text("-")
+                                        .foregroundStyle(.white)
+                                        .frame(width: 30, height: 30)
+                                        .background(RoundedRectangle(cornerRadius: 6).fill(Color.red))
+                                }
+                            }
+                        }
+                        .padding(.vertical, 8)
                     }
                     .listRowSeparator(.hidden)
-                }.ignoresSafeArea(edges: .bottom)
+                }
+                .buttonStyle(.plain)
+                .ignoresSafeArea(edges: .bottom)
                 
                 VStack {
                     Spacer()
@@ -36,6 +65,8 @@ struct Home: View {
         }
     }
 }
+
+
 
 #Preview {
     Home()
