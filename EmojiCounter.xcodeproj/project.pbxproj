@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D9099632E14808800A9D53E /* SimShot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9099612E14808800A9D53E /* SimShot2.png */; };
-		2D9099642E14808800A9D53E /* SimShot3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9099622E14808800A9D53E /* SimShot3.png */; };
-		2D9099652E14808800A9D53E /* SimShot1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9099602E14808800A9D53E /* SimShot1.png */; };
 		2D9099672E1480F500A9D53E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2D9099662E1480CF00A9D53E /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -34,9 +31,6 @@
 		2D9099322E1464D600A9D53E /* EmojiCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9099402E1464D700A9D53E /* EmojiCounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmojiCounterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D90994A2E1464D700A9D53E /* EmojiCounterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmojiCounterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D9099602E14808800A9D53E /* SimShot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SimShot1.png; sourceTree = "<group>"; };
-		2D9099612E14808800A9D53E /* SimShot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SimShot2.png; sourceTree = "<group>"; };
-		2D9099622E14808800A9D53E /* SimShot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SimShot3.png; sourceTree = "<group>"; };
 		2D9099662E1480CF00A9D53E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,9 +73,6 @@
 				2D9099662E1480CF00A9D53E /* README.md */,
 				2D9099342E1464D600A9D53E /* EmojiCounter */,
 				2D9099332E1464D600A9D53E /* Products */,
-				2D9099602E14808800A9D53E /* SimShot1.png */,
-				2D9099612E14808800A9D53E /* SimShot2.png */,
-				2D9099622E14808800A9D53E /* SimShot3.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,10 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D9099632E14808800A9D53E /* SimShot2.png in Resources */,
 				2D9099672E1480F500A9D53E /* README.md in Resources */,
-				2D9099642E14808800A9D53E /* SimShot3.png in Resources */,
-				2D9099652E14808800A9D53E /* SimShot1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
